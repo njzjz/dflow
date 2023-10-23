@@ -13,7 +13,7 @@ from importlib import import_module
 from pathlib import Path
 from typing import Dict, List, Set, Union
 
-from typeguard import check_type
+from typeguard import check_type, TypeCheckError
 
 from ..argo_objects import ArgoObjectDict
 from ..config import config
@@ -195,7 +195,12 @@ class OP(ABC):
                 ss = ss.type
             # skip type checking if the variable is None
             if io is not None:
-                check_type(ii, io, ss)
+                try:
+                    check_type(io, ss)
+                except TypeCheckError as e:
+                    raise TypeCheckError(
+                        f"Type of {ii} is incorrect: {e}"
+                    ) from e
 
     @classmethod
     def function(cls, func=None, **kwargs):
