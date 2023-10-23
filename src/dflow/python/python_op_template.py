@@ -6,6 +6,8 @@ from typing import Any, Dict, List, Optional, Type, Union
 
 import jsonpickle
 import typeguard
+import typing_extensions
+import importlib_metadata
 
 from .. import __path__
 from ..common import S3Artifact
@@ -339,6 +341,8 @@ class PythonOPTemplate(PythonScriptOPTemplate):
             python_packages += __path__
             python_packages += jsonpickle.__path__
             python_packages += typeguard.__path__
+            python_packages += importlib_metadata.__path__
+            python_packages += typing_extensions.__path__
 
         self.python_packages = None
         if python_packages:

@@ -41,6 +41,8 @@ setup(
         "requests",
         "tqdm",
         "psutil",
+        "typing-extensions",
+        "importlib-metadata",
     ],
     entry_points={
         'console_scripts': ['dflow=dflow.main:main'],
