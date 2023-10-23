@@ -14,3 +14,4 @@ tqdm
 psutil
 typing-extensions
 importlib-metadata
+zipp

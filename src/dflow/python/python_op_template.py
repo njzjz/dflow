@@ -8,6 +8,7 @@ import jsonpickle
 import typeguard
 import typing_extensions
 import importlib_metadata
+import zipp
 
 from .. import __path__
 from ..common import S3Artifact
@@ -343,6 +344,7 @@ class PythonOPTemplate(PythonScriptOPTemplate):
             python_packages += typeguard.__path__
             python_packages += importlib_metadata.__path__
             python_packages += typing_extensions.__path__
+            python_packages += zipp.__path__
 
         self.python_packages = None
         if python_packages:

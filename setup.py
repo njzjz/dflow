@@ -43,6 +43,7 @@ setup(
         "psutil",
         "typing-extensions",
         "importlib-metadata",
+        "zipp",
     ],
     entry_points={
         'console_scripts': ['dflow=dflow.main:main'],
